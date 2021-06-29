@@ -90,86 +90,86 @@ $(function () {
    * filter
    *  =======================================*/
 
-  $("#filter a").click(function (e) {
-    e.preventDefault();
+  // $("#filter a").click(function (e) {
+  //   e.preventDefault();
 
-    $("#filter li").removeClass("active");
-    $(this).parent("li").addClass("active");
+  //   $("#filter li").removeClass("active");
+  //   $(this).parent("li").addClass("active");
 
-    var categoryToFilter = $(this).attr("data-filter");
+  //   var categoryToFilter = $(this).attr("data-filter");
 
-    $(".reference-item").each(function () {
-      if (
-        $(this).data("category") === categoryToFilter ||
-        categoryToFilter === "all"
-      ) {
-        $(this).show();
-      } else {
-        $(this).hide();
-      }
-    });
-  });
+  //   $(".reference-item").each(function () {
+  //     if (
+  //       $(this).data("category") === categoryToFilter ||
+  //       categoryToFilter === "all"
+  //     ) {
+  //       $(this).show();
+  //     } else {
+  //       $(this).hide();
+  //     }
+  //   });
+  // });
 
   /* =========================================
    * reference functionality
    *  =======================================*/
-  $(".reference a").on("click", function (e) {
-    e.preventDefault();
+  // $(".reference a").on("click", function (e) {
+  //   e.preventDefault();
 
-    var title = $(this).find(".reference-title").text(),
-      description = $(this).siblings(".reference-description").html();
+  //   var title = $(this).find(".reference-title").text(),
+  //     description = $(this).siblings(".reference-description").html();
 
-    $("#detail-title").text(title);
-    $("#detail-content").html(description);
+  //   $("#detail-title").text(title);
+  //   $("#detail-content").html(description);
 
-    var images = $(this)
-      .siblings(".reference-description")
-      .data("images")
-      .split(",");
-    if (images.length > 0) {
-      sliderContent = "";
-      for (var i = 0; i < images.length; ++i) {
-        sliderContent =
-          sliderContent +
-          '<div class="item"><img src=' +
-          images[i] +
-          ' alt="" class="img-fluid"></div>';
-      }
-    } else {
-      sliderContent = "";
-    }
+  //   var images = $(this)
+  //     .siblings(".reference-description")
+  //     .data("images")
+  //     .split(",");
+  //   if (images.length > 0) {
+  //     sliderContent = "";
+  //     for (var i = 0; i < images.length; ++i) {
+  //       sliderContent =
+  //         sliderContent +
+  //         '<div class="item"><img src=' +
+  //         images[i] +
+  //         ' alt="" class="img-fluid"></div>';
+  //     }
+  //   } else {
+  //     sliderContent = "";
+  //   }
 
-    openReference(sliderContent);
-  });
+  //   openReference(sliderContent);
+  // });
 
-  function openReference(sliderContent) {
-    $("#detail").slideDown();
-    $("#references-masonry").slideUp();
+  // function openReference(sliderContent) {
+  //   $("#detail").slideDown();
+  //   $("#references-masonry").slideUp();
 
-    if (sliderContent !== "") {
-      var slider = $("#detail-slider");
+  //   if (sliderContent !== "") {
+  //     var slider = $("#detail-slider");
 
-      if (slider.hasClass("owl-loaded")) {
-        slider.trigger("replace.owl.carousel", sliderContent);
-      } else {
-        slider.html(sliderContent);
-        slider.owlCarousel({
-          nav: false,
-          dots: true,
-          items: 1,
-        });
-      }
-    }
-  }
+  //     if (slider.hasClass("owl-loaded")) {
+  //       slider.trigger("replace.owl.carousel", sliderContent);
+  //     } else {
+  //       slider.html(sliderContent);
+  //       slider.owlCarousel({
+  //         nav: false,
+  //         dots: true,
+  //         items: 1,
+  //       });
+  //     }
+  //   }
+  // }
 
-  function closeReference() {
-    $("#references-masonry").slideDown();
-    $("#detail").slideUp();
-  }
+  // function closeReference() {
+  //   $("#references-masonry").slideDown();
+  //   $("#detail").slideUp();
+  // }
 
-  $("#filter button, #detail .close").on("click", function () {
-    closeReference();
-  });
+  // $("#filter button, #detail .close").on("click", function () {
+  //   closeReference();
+  // });
 
   /* =========================================
    *  animations
